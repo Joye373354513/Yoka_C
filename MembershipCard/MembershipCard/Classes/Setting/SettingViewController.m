@@ -8,6 +8,7 @@
 
 #import "SettingViewController.h"
 #import "ShowDeteledCardViewController.h"
+#import "AboutViewController.h"
 
 @interface SettingViewController ()
 
@@ -17,7 +18,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.title = @"账户设置";
+    self.title = @"我的";
     self.edgesForExtendedLayout = UIRectEdgeNone;
     // Do any additional setup after loading the view from its nib.
 }
@@ -42,11 +43,20 @@
         //清除缓存
         
     }
-    else if (btn.tag == 4) {
+    else if (btn.tag == 4 ) {
         //使用条款
+        AboutViewController *vc = [[AboutViewController alloc]init];
+        vc.urlStr = TEMSOFUSE;
+        vc.navigationController.hidesBottomBarWhenPushed = YES;
+        [self.navigationController pushViewController:vc animated:YES];
     }
     else if (btn.tag == 5) {
         //关于我们
+        AboutViewController *vc = [[AboutViewController alloc]init];
+        vc.urlStr = ABOUTUS;
+        vc.navigationController.hidesBottomBarWhenPushed = YES;
+        [self.navigationController pushViewController:vc animated:YES];
+
     }
     else if (btn.tag == 6) {
         //给好评
